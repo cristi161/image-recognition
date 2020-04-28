@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{margin: 0;}
+        ul.sidenav{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 25%;
+            background-color: white;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            font-size: small;
+        }
+        ul.sidenav li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+ul.sidenav li a.active {
+  background-color: deepskyblue;
+  color: white;
+}
+
+ul.sidenav li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 25%;
+  padding: 1px 16px;
+  height: 1000px;
+  font-size: 140%;
+}
+
+@media screen and (max-width: 900px) {
+  ul.sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  ul.sidenav li a {
+    float: left;
+    padding: 15px;
+  }
+
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  ul.sidenav li a {
+    text-align: center;
+    float: none;
+  }
+}
+</style>
+</head>
+<!--
+<link rel = "stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="upload.js"></script> //-->
+<body>
+
+
+
+<ul class="sidenav">
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+<div class="content">
+  <h1 style="font-size: large">Character Recognition</h1>
+  <p style="font-size: medium">If you have a image with text and you want text from her this is the way.</p>
+  <p style="font-size: medium">What need do you? Simple you need to upload the image and we return a file with the text found! </p>
+  <h1 style="font-size: large">Here you can upload</h1>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="document">
+    <button type="submit">Upload file</button>
+</form>
+
+</div>
+
+
+<!--
+<div class="drop-zone">
+ <div class="timer-bar">
+  <div class="wrapper">
+   <i class='success-icon ion-ios-checkmark-empty'></i>
+   <p class='success-text'></p>
+  </div>
+ </div>
+ <p class="timer-info">Drop your file here</p>
+</div>
+
+//-->
+</body>
+
+
