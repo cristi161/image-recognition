@@ -15,6 +15,8 @@ def pagina(request):
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         fs.save(uploaded_file.name, uploaded_file)
+        #de aici ar trebui sa porneasca alg detect !!!!!
+
     return  render(request, 'charecog.html', {})
 
 def aboutpagina(request):
