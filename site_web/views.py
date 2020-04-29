@@ -17,4 +17,6 @@ def pagina(request):
         fs.save(uploaded_file.name, uploaded_file)
     return  render(request, 'charecog.html', {})
 
+def aboutpagina(request):
+    return render(request, 'about.html', {})
 
