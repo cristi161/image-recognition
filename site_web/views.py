@@ -5,20 +5,39 @@ from .models import *
 from .forms import *
 from django.core.files.storage import FileSystemStorage
 from django.views.generic import TemplateView
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
+
 # Create your views here.
 
-class Home(TemplateView):
-    template_name = 'home.html'
 
 def pagina(request):
-    if request.method == 'POST':
-        uploaded_file = request.FILES['document']
-        fs = FileSystemStorage()
-        fs.save(uploaded_file.name, uploaded_file)
+
+ #   if request.method == 'POST' and request.POST.get('upload'): #Acest if se ocupa de upload si save a imaginilor!!
+  #      uploaded_file = request.FILES['document']
+   #     fs = FileSystemStorage()
+    #    fs.save(uploaded_file.name, uploaded_file)
         #de aici ar trebui sa porneasca alg detect !!!!!
 
-    return  render(request, 'charecog.html', {})
+    if request.method == 'POST':
+        #and request.POST.get('signup')
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+           # password_con = form.cleaned_data.get('psw-repeat')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('')
+            print('s-a salvat')
+        else:
+            form = UserCreationForm()
+            print('Nu se salveaza')
+    return  render(request, 'charecog.html', {'form': form})
 
-def aboutpagina(request):
-    return render(request, 'about.html', {})
+
+
+
 
