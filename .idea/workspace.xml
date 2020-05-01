@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2062250d-280b-4e0c-a038-d99816a54535" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/descărcare_cfPh6Kq.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/fotbal.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/fotbal_vDQA9pW.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/wall_0LPl23Y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/80191647_2489926071282770_9128487357358538752_o.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/96ab7b30-5a59-4bd4-b7c7-a739641b3c3a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/96ab7b30-5a59-4bd4-b7c7-a739641b3c3a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site_web/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_web/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site_web/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_web/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site_web/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_web/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/charecog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/charecog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +26,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -53,13 +51,15 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -74,6 +74,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="website.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -111,6 +112,8 @@
       <workItem from="1588265603428" duration="806000" />
       <workItem from="1588284298970" duration="383000" />
       <workItem from="1588343277246" duration="5414000" />
+      <workItem from="1588350996742" duration="3189000" />
+      <workItem from="1588354212823" duration="1355000" />
     </task>
     <task id="LOCAL-00001" summary="Cred ca trimit ce trebuie.&#10;Btw asta este verisiunea 1.0 care poate da upload la poze si le pune intr-un folder.">
       <created>1588091626222</created>
@@ -130,7 +133,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -138,9 +141,31 @@
     <option name="LAST_COMMIT_MESSAGE" value="Cred ca trimit ce trebuie.&#10;Btw asta este verisiunea 1.0 care poate da upload la poze si le pune intr-un folder." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="232" y="25" key="SettingsEditor" timestamp="1588284262221">
-      <screen x="0" y="22" width="1280" height="728" />
+    <state width="1877" height="248" key="GridCell.Tab.0.bottom" timestamp="1588354588408">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1877" height="248" key="GridCell.Tab.0.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1588354588408" />
+    <state width="1877" height="248" key="GridCell.Tab.0.center" timestamp="1588354588408">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="248" key="GridCell.Tab.0.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1588354588408" />
+    <state width="1877" height="248" key="GridCell.Tab.0.left" timestamp="1588354588408">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="248" key="GridCell.Tab.0.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1588354588408" />
+    <state width="1877" height="248" key="GridCell.Tab.0.right" timestamp="1588354588408">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="248" key="GridCell.Tab.0.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1588354588408" />
+    <state x="348" y="5" key="SettingsEditor" timestamp="1588354691481">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="348" y="5" key="SettingsEditor/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1588354691481" />
+    <state x="278" y="4" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1588351080040" />
     <state x="232" y="25" key="SettingsEditor/0.22.1280.728@0.22.1280.728" timestamp="1588284262221" />
+    <state x="656" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1588354224285">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="656" y="364" key="com.intellij.ide.util.TipDialog/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1588354224285" />
   </component>
 </project>

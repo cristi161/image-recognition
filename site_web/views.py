@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import  HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import *
 from .forms import *
@@ -13,29 +13,19 @@ from django.contrib.auth import get_user_model
 
 
 def pagina(request):
-
- #   if request.method == 'POST' and request.POST.get('upload'): #Acest if se ocupa de upload si save a imaginilor!!
-  #      uploaded_file = request.FILES['document']
-   #     fs = FileSystemStorage()
-    #    fs.save(uploaded_file.name, uploaded_file)
+    print("start of page")
+    if request.method == 'POST' and request.POST.get('upload') == '': #Acest if se ocupa de upload si save a imaginilor!!
+        uploaded_file = request.FILES['document']
+        fs = FileSystemStorage()
+        fs.save(uploaded_file.name, uploaded_file)
         #de aici ar trebui sa porneasca alg detect !!!!!
 
-    if request.method == 'POST':
-        #and request.POST.get('signup')
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-           # password_con = form.cleaned_data.get('psw-repeat')
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('')
-            print('s-a salvat')
-        else:
-            form = UserCreationForm()
-            print('Nu se salveaza')
-    return  render(request, 'charecog.html', {'form': form})
+    if request.method == 'POST' and request.POST.get('signup') == '':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+
+    return render(request, 'charecog.html', {'form': UserCreationForm()})
 
 
 
