@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2062250d-280b-4e0c-a038-d99816a54535" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/descărcare_cfPh6Kq.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/fotbal.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/fotbal_vDQA9pW.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/wall_0LPl23Y.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/fotbal_zrchIIJ.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site_web/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_web/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site_web/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_web/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/charecog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/charecog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +102,8 @@
       <workItem from="1588243204727" duration="4399000" />
       <workItem from="1588265603428" duration="806000" />
       <workItem from="1588284298970" duration="383000" />
-      <workItem from="1588343277246" duration="5414000" />
+      <workItem from="1588343277246" duration="7903000" />
+      <workItem from="1588358113301" duration="1595000" />
     </task>
     <task id="LOCAL-00001" summary="Cred ca trimit ce trebuie.&#10;Btw asta este verisiunea 1.0 care poate da upload la poze si le pune intr-un folder.">
       <created>1588091626222</created>
@@ -142,5 +135,9 @@
       <screen x="0" y="22" width="1280" height="728" />
     </state>
     <state x="232" y="25" key="SettingsEditor/0.22.1280.728@0.22.1280.728" timestamp="1588284262221" />
+    <state x="314" y="74" width="670" height="676" key="search.everywhere.popup" timestamp="1588353944749">
+      <screen x="0" y="22" width="1280" height="728" />
+    </state>
+    <state x="314" y="74" width="670" height="676" key="search.everywhere.popup/0.22.1280.728@0.22.1280.728" timestamp="1588353944749" />
   </component>
 </project>

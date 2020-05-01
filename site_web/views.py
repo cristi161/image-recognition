@@ -11,31 +11,25 @@ from django.contrib.auth import get_user_model
 
 # Create your views here.
 
-
 def pagina(request):
 
- #   if request.method == 'POST' and request.POST.get('upload'): #Acest if se ocupa de upload si save a imaginilor!!
-  #      uploaded_file = request.FILES['document']
-   #     fs = FileSystemStorage()
-    #    fs.save(uploaded_file.name, uploaded_file)
+  #  if request.method == 'POST' and request.POST.get('upload') == '': #Acest if se ocupa de upload si save a imaginilor!!
+        #uploaded_file = request.FILES['document']
+        #fs = FileSystemStorage()
+       # fs.save(uploaded_file.name, uploaded_file)
         #de aici ar trebui sa porneasca alg detect !!!!!
+    form = UserCreationForm()
 
-    if request.method == 'POST':
-        #and request.POST.get('signup')
+    if request.method == 'POST' and request.POST.get('signup') =='':
+        print("if mare")
         form = UserCreationForm(request.POST)
         if form.is_valid():
+            print("form is valid")
             form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-           # password_con = form.cleaned_data.get('psw-repeat')
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('')
-            print('s-a salvat')
-        else:
-            form = UserCreationForm()
-            print('Nu se salveaza')
-    return  render(request, 'charecog.html', {'form': form})
+
+    context = {'form': form}
+    print('final')
+    return  render(request, 'charecog.html', context)
 
 
 
