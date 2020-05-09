@@ -13,12 +13,29 @@ from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm
 # Create your views here.
 
+<<<<<<< HEAD
 def pagina(request): #Functia principa;a care ajuta la randarea paginii plus functiile de login and singup
     form = CreateUserForm()  #SINGUP
     if request.method == 'POST' and request.POST.get('signup') == '':
         form = CreateUserForm(request.POST)
+=======
+def pagina(request):
+
+  #  if request.method == 'POST' and request.POST.get('upload') == '': #Acest if se ocupa de upload si save a imaginilor!!
+        #uploaded_file = request.FILES['document']
+        #fs = FileSystemStorage()
+       # fs.save(uploaded_file.name, uploaded_file)
+        #de aici ar trebui sa porneasca alg detect !!!!!
+    form = UserCreationForm()
+
+    if request.method == 'POST' and request.POST.get('signup') =='':
+        print("if mare")
+        form = UserCreationForm(request.POST)
+>>>>>>> f9eba4dbc899d96443fe71939882bbe09bd00a3b
         if form.is_valid():
+            print("form is valid")
             form.save()
+<<<<<<< HEAD
             messages.success(request, 'Account was created')
 
     if request.method == 'POST' and request.POST.get('login') == '':  #login
@@ -47,6 +64,12 @@ def loginpage(request):
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         fs.save(uploaded_file.name, uploaded_file)
+=======
+
+    context = {'form': form}
+    print('final')
+    return  render(request, 'charecog.html', context)
+>>>>>>> f9eba4dbc899d96443fe71939882bbe09bd00a3b
 
 
     def logout(request):
