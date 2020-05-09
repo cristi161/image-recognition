@@ -76,15 +76,28 @@ div.content {
             outline: none;
         }
         /* set style for all buttons */
-        button{
+        .button-signup{
             background-color: deepskyblue;
             color: white;
-            padding: 15px 20px;
+            padding: 15px 40px;
             margin: 8px 0;
             border: none;
             cursor: pointer;
             width: 100%;
             opacity: 0.9;
+            float: left;
+           }
+        .button-login{
+            background-color: deepskyblue;
+            color: white;
+            padding: 15px 40px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 300%;
+            opacity: 0.9;
+            float: left;
+
         }
         button:hover{
             opacity: 1;
@@ -160,29 +173,30 @@ div.content {
             width: 100%;
          }
             }
+        .hello-msg{
+            font-size: 18px;
+            color: deepskyblue;
+            margin-right: 20px;
+        }
     </style>
 </head>
 <body>
 
 <ul class="sidenav">
   <li><a class="active" href="#home">Home</a></li>
-  <li><a  class="dropbtn" href="about.html">About</a></li>
+  <li><a  class="dropbtn" href="about">About</a></li>
 </ul>
 <div class="content">
   <h1 style="font-size: large">Character Recognition</h1>
   <p style="font-size: medium">If you have a image with text and you want text from her this is the way.</p>
   <p style="font-size: medium">What need do you? Simple you need to upload the image and we return a file with the text found! </p>
-  <h1 style="font-size: large">Here you can upload</h1>
-    <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="document">
-    <button  style="size: auto" type="submit" name="upload">Upload file</button>
-</form>
+  <p style="font-size: medium">The process to character recognition is behind the web page we have in python an algorithm with openCV 4 who try to dectec your text from the image and with tesseract framework from Google we try to recognize the text.</p>
+    <p style="font-size: medium">If you want to upload an image please login or sign up.</p>
+
 <h1 style="font-size: medium">Please signup</h1>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" name="signup">Sign Up</button>
-
-<div id="id01" class="modal">
+<button class="button-signup" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" name="signup">Sign Up</button>
+    <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
   <form  method="post" class="modal-content" action="">
       {% csrf_token %}
@@ -194,6 +208,7 @@ div.content {
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
         <button type="submit" class="signupbtn" name="signup">Sign Up</button>
+            {{ form.errors }}
 
       </div>
     </div>
@@ -214,30 +229,32 @@ window.onclick = function(event) {
 
 <h1 style="font-size: medium">Login here</h1>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<button class="button-login" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
 
-<div id="id01" class="modal">
+<div id="id02" class="modal">
 
-  <form class="modal-content animate" action="charecog.html" method="post">
+  <form class="modal-content animate" action="" method="post">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
 
     <div class="container">
+        {% csrf_token %}
+
       <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
+      <input type="text" placeholder="Enter Username" name="username_login" required>
 
       <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+      <input type="password" placeholder="Enter Password" name="password_login" required>
 
-      <button type="submit">Login</button>
+      <button type="submit" name="login">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
@@ -264,5 +281,5 @@ window.onclick = function(event) {
 
 </div>
 </body>
-
+</html>
 
