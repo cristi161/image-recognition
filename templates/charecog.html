@@ -2,6 +2,21 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
 	<title>CR | Text from images</title>
 	<style>
 		body{font-family: Arial, Helvetica, sans-serif;}
@@ -151,7 +166,7 @@
 	<!-- Offcanvas Menu Section -->
 	<div class="offcanvas-menu-wrapper">
 		<div class="menu-header">
-			<a  class="site-logo">
+			<a href="" class="site-logo">
 				<img src="{% static 'img/logo-final.png' %}" alt="">
 			</a>
 			<div class="menu-switch" id="menu-canvas-close">
@@ -164,16 +179,14 @@
 		</ul>
 		<div class="menu-footer">
 			<div class="footer-social">
-				<button>Sing UP</button>
-				<button>Login</button>
-			</div>
+				</div>
 		</div>
 	</div>
 	<!-- Offcanvas Menu Section end -->
 
 	<!-- Header section -->
 	<header class="header-section">
-		<a class="site-logo">
+		<a href="" class="site-logo">
 			<img src="{% static 'img/logo-final.png'%}" alt="">
 		</a>
 		<div class="menu-switch" id="menu-canvas-show">
@@ -195,7 +208,6 @@
 			</div>
 			<div class="hero-item">
 				<div class="hero-text">
-					<div class="ht-cata"></div>
 					<h2>Vision</h2>
 					<p>This is the easy way to extract text from images.</p>
 					<p>If you want to see upload button you need to be login.</p>
@@ -205,7 +217,6 @@
 			</div>
 			<div class="hero-item">
 				<div class="hero-text">
-					<div class="ht-cata"></div>
 					<h2>Vision</h2>
 					<p>This is the easy way to extract text from images.</p>
 					<p>If you want to see upload button you need to be login.</p>
@@ -219,27 +230,33 @@
 
 	<!-- Footer section -->
 	<footer class="footer-section">
-		<form class="footer-social">
+		<div class="footer-social">
             <button class="button-signup" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" name="signup">Sign Up</button>
-    <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form  method="post" class="modal-content" action="">
-      {% csrf_token %}
-      <div class="container">
-      <h1>Sign Up</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-        {{ form.as_p }}
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn" name="signup">Sign Up</button>
-            {{ form.errors }}
+            <div id="id01" class="modal">
+  		<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+		  <form  method="post" class="modal-content" action="">
+		    {% csrf_token %}
+		    <div class="container">
+		    	<div class="row">
+		    		<div class="col-md-2"></div>
+		    		<div class="col-md-10">
+		    			<h1>Sign Up</h1>
+				        <p>Please fill in this form to create an account.</p>
+				        {{ form.as_p }}
+				        <div class="clearfix">
+				        	<button type="submit" class="signupbtn" name="signup">Sign Up</button>
+				            <button type="button" style="float: right;" onclick="document.getElementById('id01').style.display='none'" class="btn btn-danger">Cancel</button>
+				            {{ form.errors }}
+				      	</div>
+		    		</div>
+		    		<div class="col-md-2"></div>
+		    	</div>
+		    </div>
+		</form>
+	</div>
 
 
-      </div>
-    </div>
-  </form>
-</div>
+
 
 <script>
 // Get the modal
@@ -255,53 +272,47 @@ window.onclick = function(event) {
 
 
 <button class="button-login" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
-
 <div id="id02" class="modal">
-
   <form class="modal-content animate" action="" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
-
     <div class="container">
-        {% csrf_token %}
-
-      <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username_login" required>
-
-      <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password_login" required>
-
-      <button type="submit" name="login">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+    	<div class="row">
+    		<div class="col-md-2"></div>
+    		<div class="col-md-8">
+    			{% csrf_token %}
+		        <label for="username"><b>Username</b></label>
+		        <input type="text" placeholder="Enter Username" name="username_login" required>
+		        <label for="password"><b>Password</b></label>
+		        <input type="password" placeholder="Enter Password" name="password_login" required>
+		        <button type="submit" class="btn btn-success" name="login">Login</button>
+		        <input type="checkbox" checked="checked" name="remember"> Remember me
+      			<button type="button" style="float: right;" class="btn btn-danger" onclick="document.getElementById('id02').style.display='none'">Cancel</button>
+    		</div>
+    		<div class="col-md-2"></div>
+    	</div>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
+<script>
+// Get the modal
+var modal = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
   </form>
 </div>
 
 
 
 
-    <script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
-
-        </form>
+        </div>
     </footer>
 	<!-- Footer section end -->
 

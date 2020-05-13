@@ -3,6 +3,7 @@ import numpy as np
 import argparse
 import time
 import cv2
+import os
 from PIL import Image
 # construct the argument parser and parse the arguments
 #ap = argparse.ArgumentParser()
@@ -117,11 +118,8 @@ def detecfunc(path):
 		cv2.rectangle(orig, (startX, startY), (endX, endY), (0, 255, 0), 2)
 	# show the output image
 	#cv2.imshow("Text Detection", orig)
-	cv2.imwrite("_detected100.jpg",orig)
+	path = '/Users/mmm/Desktop/image-recognition-site-web-2-0/static/img_detect'
+	cv2.imwrite(os.path.join(path,"_gasita.jpg"),orig)
 	#cv2.waitKey(0)
-#crop_img = orig[startY: startY+endY, startX: startX+endX]
-#cv2.imshow("Text Detection", crop_img)
-#cv2.waitKey(0)
-#detecfunc("/Users/mmm/PycharmProjects/proiect_colectiv_nokia/media/minge.jpeg")
 
 

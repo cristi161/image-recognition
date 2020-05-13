@@ -10,7 +10,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login , logout
 from .forms import CreateUserForm
+from PIL import Image
+import pytesseract as tess
 import textd as alg
+import OCR as oc
+from django.http import FileResponse
 # Create your views here.
 
 
@@ -44,15 +48,22 @@ def pagina(request):
 
 form = CreateUserForm()
 def loginpage(request):
-    file_name = " "
+    file_name = "dsafdsafas"
+    text = ""
     if request.method == 'POST' and request.POST.get('upload') == '':  # Acest if se ocupa de upload si save a imaginilor!!
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         fs.save(uploaded_file.name, uploaded_file)
         print(uploaded_file.name)
-        alg.detecfunc("/Users/mmm/Downloads/image-recognition-site-web-2-0/media/"+uploaded_file.name)
+        alg.detecfunc("/Users/mmm/Desktop/image-recognition-site-web-2-0/media/"+uploaded_file.name)
         file_name = uploaded_file.name
-    context = {'form': form, 'img_name': file_name}
+        text = tess.image_to_string((Image.open(uploaded_file)))
+        print(text)
+        file = open("text_from_picture.txt", "a+")
+        file.write(text)
+        file.close()
+
+    context = {'form': form, 'img_name': file_name, 'img_text': text}
     print('final')
     return  render(request, 'recologin.html', context)
 
