@@ -120,6 +120,10 @@
          }
             }
 
+            .hello-msg, .site-logo{
+                display: flex;
+            }
+
             .hello-msg{
             font-size: 18px;
             color:whitesmoke;
@@ -135,6 +139,22 @@
             margin-left: auto;
             position: relative;
             bottom: 50%;
+        }
+
+        label, textarea{
+            font-size: .8rem;
+            letter-spacing: 1px;
+        }
+        textarea{
+            padding: 10px;
+            line-height: 1.5;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            box-shadow: 1px 1px 1px #999;
+        }
+        label{
+            display: ruby-text-container;
+            margin-bottom: 10px;
         }
 
 
@@ -219,7 +239,11 @@
 
 	</section>
     <img src="{% static 'img_detect/_gasita.jpg' %}">
-    <p> {{ img_text }}</p>
+    <label for ="story" style="color: grey; size: 15px">Detected text for you</label>
+    <textarea id="story" name="story" rows="10" cols="33">
+        {{ img_text }}
+    </textarea>
+
 	<!-- Hero section end -->
 
 	<!-- Footer section -->

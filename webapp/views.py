@@ -9,29 +9,30 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login , logout
-from .forms import CreateUserForm
+from .forms import CustomUserForm
 from PIL import Image
 import pytesseract as tess
 import textd as alg
+from django.contrib import messages
 import OCR as oc
 from django.http import FileResponse
 # Create your views here.
 
 
 def pagina(request):
-    form = CreateUserForm()
+    form2 = CustomUserForm()
     if request.method == 'POST' and request.POST.get('signup') == '':
         print("if mare")
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
+        form2 = CustomUserForm(request.POST)
+        if form2.is_valid():
             print("form is valid")
-            form.save()
+            form2.save()
             messages.success(request, 'Account was created')
 
     if request.method == 'POST' and request.POST.get('login') == '':  #login
         username = request.POST.get('username_login')
         password = request.POST.get('password_login')
-        email = request.POST.get
+       # email = request.POST.get
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
@@ -43,10 +44,10 @@ def pagina(request):
         return redirect('webapp')
     login_required(login_url='webapp')
 
-    context = {'form': form}
+    context = {'form': form2}
     return  render(request, 'charecog.html', context)
 
-form = CreateUserForm()
+
 def loginpage(request):
     file_name = "dsafdsafas"
     text = ""
@@ -63,7 +64,7 @@ def loginpage(request):
         file.write(text)
         file.close()
 
-    context = {'form': form, 'img_name': file_name, 'img_text': text}
+    context = { 'img_name': file_name, 'img_text': text}
     print('final')
     return  render(request, 'recologin.html', context)
 
@@ -77,10 +78,10 @@ def loginpage(request):
     return render(request, 'recologin.html',{})
 
 def aboutpage(request):
-    form = CreateUserForm()
+    form = CustomUserForm()
     if request.method == 'POST' and request.POST.get('signup') == '':
         print("if mare")
-        form = CreateUserForm(request.POST)
+        form = CustomUserForm(request.POST)
         if form.is_valid():
             print("form is valid")
             form.save()
@@ -102,7 +103,39 @@ def aboutpage(request):
             return redirect('webapp')
 
         login_required(login_url='webapp')
+    context = {'form': form}
+
+    return render(request, 'about.html', context)
 
 
-    return render(request, 'about.html')
 
+def tologinPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('your_name')
+        password = request.POST.get('your_pass')
+        user = authenticate(request, username = username, password = password)
+        if user is not None:
+            login(request, user)
+            return redirect('login-page')
+        else:
+            messages.info(request, 'Username or password is incorrect')
+
+    context = {}
+    return render(request, 'login.html', context)
+
+def register2(request):
+    form = CustomUserForm()
+    if request.method == 'POST':
+        form = CustomUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user )
+
+            return redirect('tologin')
+    context = {'form': form}
+
+    return render(request, 'singup2.html', context)
+def logoutUser(request):
+    logout(request)
+    return redirect('webapp')

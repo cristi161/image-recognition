@@ -6,25 +6,10 @@ import cv2
 import os
 from PIL import Image
 # construct the argument parser and parse the arguments
-#ap = argparse.ArgumentParser()
-#ap.add_argument("-i", "--image", type=str,
-#	help="sign.jpg")
-#ap.add_argument("-east", "--east", type=str,
-#	help="path to input EAST text detector")
-#ap.add_argument("-c", "--min-confidence", type=float, default=0.5,
-#	help="minimum probability required to inspect a region")
-#ap.add_argument("-w", "--width", type=int, default=320,
-#	help="resized image width (should be multiple of 32)")
-#ap.add_argument("-e", "--height", type=int, default=320,
-#	help="resized image height (should be multiple of 32)")
-#args = vars(ap.parse_args())
-# load the input image and grab the image dimensions
-#image = cv2.imread(args["image"])
 def detecfunc(path):
 	width = 320
 	height = 320
 	min_confidence = 0.5
-	#image = cv2.imread("/Users/mmm/PycharmProjects/OCR/imgs/lebron_james.jpg")
 	image = cv2.imread(path)
 	orig = image.copy()
 	(H, W) = image.shape[:2]
