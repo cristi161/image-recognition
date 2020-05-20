@@ -103,8 +103,8 @@ def detecfunc(path):
 		cv2.rectangle(orig, (startX, startY), (endX, endY), (0, 255, 0), 2)
 	# show the output image
 	#cv2.imshow("Text Detection", orig)
-	path = '/Users/mmm/Desktop/image-recognition-site-web-2-0/static/img_detect'
-	cv2.imwrite(os.path.join(path,"_gasita.jpg"),orig)
+	path = 'D:/GitHub/image-recognition-site-web-5/static/img_detect/'
+	image_name = ''.join(time.time().__str__().split('.')) + "_gasita.jpg"
+	cv2.imwrite(os.path.join(path,image_name), orig)
+	return image_name
 	#cv2.waitKey(0)
-
-

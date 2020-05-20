@@ -51,22 +51,25 @@ def pagina(request):
 def loginpage(request):
     file_name = "dsafdsafas"
     text = ""
+    founded = ''
+    #new_record = ImageOCRecord(image_path="media/image.jpg", text_from_image="text from image")
+    #new_record.save()
     if request.method == 'POST' and request.POST.get('upload') == '':  # Acest if se ocupa de upload si save a imaginilor!!
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         fs.save(uploaded_file.name, uploaded_file)
         print(uploaded_file.name)
-        alg.detecfunc("/Users/mmm/Desktop/image-recognition-site-web-2-0/media/"+uploaded_file.name)
-        file_name = uploaded_file.name
+        file_name = alg.detecfunc("D:/GitHub/image-recognition-site-web-5/media/"+uploaded_file.name)
         text = tess.image_to_string((Image.open(uploaded_file)))
         print(text)
-        file = open("text_from_picture.txt", "a+")
+        founded = 'found'
+        file = open("D:/GitHub/image-recognition-site-web-5/static/text_from_picture.txt", "w")
         file.write(text)
         file.close()
 
-    context = { 'img_name': file_name, 'img_text': text}
+    context = {'img_name': 'img_detect/' + file_name, 'img_text': text, 'founded': founded}
     print('final')
-    return  render(request, 'recologin.html', context)
+    return render(request, 'recologin.html', context)
 
 
     def logout(request):

@@ -324,16 +324,21 @@
             </div>
 
 	</section>
-   <p6 style="font-size: xx-large; text-align: center; color: white">-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</p6>
-   <br><br><br><br>
-    <p7 style="font-size: 30px; text-align: left; color: #138496">This is an example of what our page can do:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is your detected text:</p7><br>
+    <p6 style="font-size: xx-large; text-align: center; color: white">-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</p6>
+    <br><br><br><br>
+    {% if founded == '' %}
 
-    <p8><img src="{% static 'img_detect/_gasita.jpg' %}" style="width: 800px; height: 500px"></p8>
+    {% else %}
+        <p8><img src="{% static img_name %}" style="width: 800px; height: 500px"></p8>
+
+        <textarea id="story" name="story" rows="10" cols="33">
+            {{ img_text }}
+        </textarea>
+        <a href="{% static 'text_from_picture.txt' %}" download>Download .txt file</a>
+    {% endif %}
 
     <p9>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p9>
-    <textarea id="story" name="story" rows="10" cols="33">
-        {{ img_text }}
-    </textarea>
+
 
 	<!-- Hero section end -->
 
