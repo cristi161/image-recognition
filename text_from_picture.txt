@@ -1,0 +1,148 @@
+Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Mild Splendour of the various-vested Night!
+Mother of wildly-working visions! hail
+
+I watch thy gliding, while with watery light
+Thy weak eye glimmers through a fleecy veil;
+
+And when thou lovest thy pale orb to shroud
+Behind the gather'd blackness lost on highs
+
+‘And when thou dartest from the wind-rent cloud
+Thy placid lightning o'er the awaken’d sky.Cid a ON
+
+3 Baschet, Teren baschet, Mart’ x | Q @ Meet-xcm-digt-fg x 2 Howto Access aimage frome x | -+
+
+oO &._https://stackoverflow.com/questions/5337682/how-to-access-a-image-from-another-director.
+
+stackoverflow — Products Customers. Use cases
+
+3 Answers Active | Oldest |) Votes
+
+sys.path[@] gives you the directory where the current script resides:
+
+@ Stack Overflow import sys, os
+script_dir = sys.path[@]
+
+Tags img_path = os.path.join(script_dir, '../y/imgi.png') erred
+
+Users
+angwered Mar 1711 at 10:24
+
+g CharlesB
+~ 69k
+
+Jobs
+
+TEAMS What's this?
+
+Free 30 Day Trial
+
+Want a python job?
+
+img_file = open('../y/img1.png') Full Stack Software Engineer (React &
+Django)
+
+anewored Mar 171 at 1020
+varies ome
+‘10k flee
+
+Site Reliability Engineer
+
+This will not work if current directory is not set to the script dir (can happeen if
+chdir() has been called before) — Charles8
+
+By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service.
+
+ 
+
+Lol’ 0 Cl oleae lean lt |

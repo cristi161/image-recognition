@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>CR | Text from images</title>
+    <style>
+
+          .hello-msg, .site-logo{
+                display: flex;
+            }
+
+            .hello-msg{
+            font-size: 18px;
+            color:whitesmoke;
+            margin-right: 20px;
+            margin-left: auto;
+            position: relative;
+            bottom: 50%;
+        }
+        .logout{
+            font-size: 18px;
+            color: whitesmoke;
+            margin-right: 20px;
+            margin-left: auto;
+            position: relative;
+            bottom: 50%;
+        }
+
+
+
+
+    </style>
+<meta charset="UTF-8">
+	<meta name="description" content="Character recognition">
+	<meta name="keywords" content="python,django,opencv4,tesseract html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static  'css/bootstrap.min.css '%}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}"/>
+	<link rel="stylesheet" href="{%  static 'css/elegant-icons.css'%}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}"/>
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Offcanvas Menu Section -->
+	<div class="offcanvas-menu-wrapper">
+		<div class="menu-header">
+			<a href="./login-page" class="site-logo">
+				<img src="{% static 'img/logo-final.png'%}" alt="">
+			</a>
+			<div class="menu-switch" id="menu-canvas-close">
+				<i class="icon_close"></i>
+			</div>
+		</div>
+		<ul class="main-menu">
+			<li><a href="login-page" class="active">Home</a></li>
+			<li><a href="about">About</a></li>
+		</ul>
+		<div class="menu-footer">
+			<div class="footer-social">
+				</div>
+		</div>
+	</div>
+	<!-- Offcanvas Menu Section end -->
+
+	<!-- Header section -->
+	<header class="header-section">
+		<a href="./login-page" class="site-logo">
+			<img src="{% static 'img/logo-final.png' %}" alt="">
+		</a>
+		<div class="menu-switch" id="menu-canvas-show">
+			<i class="icon_menu"></i>
+        </div>
+        <span class="hello-msg"> Hello {{ request.user }}</span>
+    <span><a  class="logout" href="{% url 'webapp' %}">Logout</a> </span>
+
+	</header>
+	<!-- Header section end -->
+
+	<!-- Hero section -->
+	<section class="hero-section">
+        <p>Choose what do you want to extract. Text from picture or car plate recognition</p>
+            <a href="login-page">Extract Text from Picture</a>
+            <a href="carplate">Car plate recognition</a>
+
+       </section>
+
+	<!-- Hero section end -->
+
+	<!-- Footer section -->
+	<!-- Footer section end -->
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static  'js/vendor/jquery-3.2.1.min.js'%}"></script>
+	<script src="{% static 'js/bootstrap.min.js'%}"></script>
+	<script src="{%  static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{%  static 'js/masonry.pkgd.min.js'%}"></script>
+	<script src="{%  static 'js/main.js' %}"></script>
+
+	</body>
+</html>
