@@ -1,3 +1,4 @@
+from django.contrib.sites import requests
 from django.shortcuts import render
 from django.http import  HttpResponse
 from django.shortcuts import redirect
@@ -15,7 +16,10 @@ import pytesseract as tess
 import textd as alg
 import carplate as algcar
 from django.contrib import messages
+import requests
 import OCR as oc
+import trans as api
+
 from django.http import FileResponse
 # Create your views here.
 
@@ -65,7 +69,7 @@ def loginpage(request):
         file = open("/Users/mmm/Desktop/image-recognition-site-web-5-0/static/text_from_picture.txt", "w")
         file.write(text)
         file.close()
-
+        print('Rezultat:' + api.translate(text))
     context = {'img_name': 'img_detect/' + file_name, 'img_text': text, 'founded': founded}
     print('final')
     return render(request, 'recologin.html', context)
