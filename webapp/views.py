@@ -1,6 +1,6 @@
 from django.contrib.sites import requests
 from django.shortcuts import render
-from django.http import  HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import *
 from .forms import *
@@ -9,7 +9,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login , logout
+from django.contrib.auth import authenticate, login, logout
 from .forms import CustomUserForm
 from PIL import Image
 import pytesseract as tess
@@ -21,6 +21,8 @@ import OCR as oc
 import trans as api
 
 from django.http import FileResponse
+
+
 # Create your views here.
 
 
@@ -34,46 +36,50 @@ def pagina(request):
             form2.save()
             messages.success(request, 'Account was created')
 
-    if request.method == 'POST' and request.POST.get('login') == '':  #login
+    if request.method == 'POST' and request.POST.get('login') == '':  # login
         username = request.POST.get('username_login')
         password = request.POST.get('password_login')
-       # email = request.POST.get
+        # email = request.POST.get
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect('choosealg')
         else:
             messages.info(request, 'Username or password is incorrect')
+
     def logout(request):
         logout(request)
         return redirect('webapp')
+
     login_required(login_url='webapp')
 
     context = {'form': form2}
-    return  render(request, 'charecog.html', context)
+    return render(request, 'charecog.html', context)
 
 
 def loginpage(request):
     file_name = "dsafdsafas"
     text = ""
     founded = ''
-    if request.method == 'POST' and request.POST.get('upload') == '':  # Acest if se ocupa de upload si save a imaginilor!!
+    translated = ''
+    if request.method == 'POST' and request.POST.get(
+            'upload') == '':  # Acest if se ocupa de upload si save a imaginilor!!
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         fs.save(uploaded_file.name, uploaded_file)
         print(uploaded_file.name)
-        file_name = alg.detecfunc("/Users/mmm/Desktop/image-recognition-site-web-5-0/media/"+uploaded_file.name)
+        file_name = alg.detecfunc("D:/GitHub/image-recognition-site-web-6/media/" + uploaded_file.name)
         text = tess.image_to_string((Image.open(uploaded_file)))
         print(text)
         founded = 'found'
-        file = open("/Users/mmm/Desktop/image-recognition-site-web-5-0/static/text_from_picture.txt", "w")
+        file = open("D:/GitHub/image-recognition-site-web-6/static/text_from_picture.txt", "w")
         file.write(text)
         file.close()
-        print('Rezultat:' + api.translate(text))
-    context = {'img_name': 'img_detect/' + file_name, 'img_text': text, 'founded': founded}
+        translated = api.translate(text)
+        print('Rezultat:' + translated)
+    context = {'img_name': 'img_detect/' + file_name, 'img_text': text, 'founded': founded, 'text_tradus': translated}
     print('final')
     return render(request, 'recologin.html', context)
-
 
     def logout(request):
         logout(request)
@@ -81,7 +87,8 @@ def loginpage(request):
 
     login_required(login_url='webapp')
 
-    return render(request, 'recologin.html',{})
+    return render(request, 'recologin.html', {})
+
 
 def aboutpage(request):
     form = CustomUserForm()
@@ -114,12 +121,11 @@ def aboutpage(request):
     return render(request, 'about.html', context)
 
 
-
 def tologinPage(request):
     if request.method == 'POST':
         username = request.POST.get('your_name')
         password = request.POST.get('your_pass')
-        user = authenticate(request, username = username, password = password)
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect('choosealg')
@@ -129,6 +135,7 @@ def tologinPage(request):
     context = {}
     return render(request, 'login.html', context)
 
+
 def register2(request):
     form = CustomUserForm()
     if request.method == 'POST':
@@ -136,12 +143,14 @@ def register2(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + user )
+            messages.success(request, 'Account was created for ' + user)
 
             return redirect('tologin')
     context = {'form': form}
 
     return render(request, 'singup2.html', context)
+
+
 def logoutUser(request):
     logout(request)
     return redirect('webapp')
@@ -150,7 +159,8 @@ def logoutUser(request):
 def choosealg(request):
     login_required(login_url='webapp')
 
-    return  render(request, 'choosealg.html')
+    return render(request, 'choosealg.html')
+
 
 def logoutUser(request):
     logout(request)
@@ -161,25 +171,37 @@ def carplate(request):
     file_name = "dsafdsafas"
     text = ""
     founded = ''
-    if request.method == 'POST' and request.POST.get('upload') == '':  # Acest if se ocupa de upload si save a imaginilor!!
+    plate_found = 'Plate was not found in dbs.'
+    if request.method == 'POST' and request.POST.get(
+            'upload') == '':  # Acest if se ocupa de upload si save a imaginilor!!
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         fs.save(uploaded_file.name, uploaded_file)
         print(uploaded_file.name)
-        file_name = algcar.detectplate("/Users/mmm/Desktop/image-recognition-site-web-5-0/media/" + uploaded_file.name)
+        algcar.detectplate("D:/GitHub/image-recognition-site-web-6/media/" + uploaded_file.name)
+
         text = tess.image_to_string((Image.open(uploaded_file)))
-        print(text)
+        file_name = uploaded_file.name
+        rrecs = ImageOCRecord.objects.all()
+
+        for plates in rrecs:
+            if plates.text_from_image == text:
+                plate_found = 'found'
+
         founded = 'found'
-        file = open("/Users/mmm/Desktop/image-recognition-site-web-5-0/static/text_from_picture.txt", "w")
+        file = open("D:/GitHub/image-recognition-site-web-6/static/text_from_picture.txt", "w")
         file.write(text)
         file.close()
+        new_record = ImageOCRecord(image_path=file_name, text_from_image=text)
+        new_record.save()
 
-    context = {'img_name':  file_name, 'img_text': text, 'founded': founded}
+    context = {'img_name': file_name, 'img_text': text, 'founded': founded, 'plate': plate_found}
     print('final')
 
     login_required(login_url='webapp')
 
     return render(request, 'carplate.html', context)
+
 
 def logoutUser(request):
     logout(request)

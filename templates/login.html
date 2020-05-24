@@ -1,63 +1,65 @@
-{%load static%}
+{% load static %}
 <!DOCTYPEhtml>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"content="width=device-width,initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible"content="ie=edge">
-<title>Log In</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log In</title>
 
-<!--FontIcon-->
-<link rel="stylesheet"href="{%static 'sing-login-style/fonts/material-icon/css/material-design-iconic-font.min.css'%}">
+    <!--FontIcon-->
+    <link rel="stylesheet"
+          href="{% static 'sing-login-style/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
 
-<!--Maincss-->
-<link rel="stylesheet"href="{%static 'sing-login-style/css/style.css'%}">
+    <!--Maincss-->
+    <link rel="stylesheet" href="{% static 'sing-login-style/css/style.css' %}">
 </head>
 <body>
 
 <div class="main">
-<section class="sign-in">
-<div class="container">
-<div class="signin-content">
-<div class="signin-image">
-<figure><img src="{% static 'sing-login-style/images/logo2.png'%}"alt="singupimage"></figure>
-<a href="register"class="signup-image-link">Create an account</a>
-</div>
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image">
+                    <figure><img src="{% static 'sing-login-style/images/logo2.png' %}" alt="singupimage"></figure>
+                    <a href="register" class="signup-image-link" style="color: antiquewhite">Create an account</a>
+                </div>
 
-<div class="signin-form">
-<h2 class="form-title">Signup</h2>
-<form method="POST" class="register-form" id="login-form">
-{% csrf_token %}
-<div class="form-group">
-<label for="your_name"><i class="zmdizmdi-accountmaterial-icons-name"></i></label>
-<input type="text" name="your_name" id="your_name" placeholder="Username"/>
-</div>
-<div class="form-group">
-<label for="your_pass"><i class="zmdizmdi-lock"></i></label>
-<input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
-</div>
-<div class="form-group">
-<input type="checkbox"name="remember-me"id="remember-me"class="agree-term"/>
-<label for="remember-me"class="label-agree-term"><span><span></span></span>Remember me</label>
-</div>
-{% csrf_token %}
+                <div class="signin-form">
+                    <h2 class="form-title" style="color: antiquewhite">Login</h2>
+                    <form method="POST" class="register-form" id="login-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="your_name"><i class="zmdizmdi-accountmaterial-icons-name"></i></label>
+                            <input type="text" name="your_name" id="your_name" placeholder="Username"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="your_pass"><i class="zmdizmdi-lock"></i></label>
+                            <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term"/>
+                            <label for="remember-me" style="color: antiquewhite" class="label-agree-term"><span><span></span></span>Remember
+                                me</label>
+                        </div>
+                        {% csrf_token %}
 
-<div class="form-groupform-button">
-    {% for message in messages %}
-        <p id="messages">{{ message }}</p>
-    {% endfor %}
-<input type="submit"name="signin"id="signin"class="form-submit"value="Login"/>
-</div>
-</form>
-</div>
-</div>
-</div>
-</section>
+                        <div class="form-groupform-button">
+                            {% for message in messages %}
+                                <p id="messages">{{ message }}</p>
+                            {% endfor %}
+                            <input type="submit" name="signin" id="signin" class="form-submit" value="Login"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </div>
 
 <!--JS-->
-<script src="{%static 'sing-login-style/vendor/jquery/jquery.min.js'%}"></script>
-<script src="{%static 'sing-login-style/js/main.js'%}"></script>
+<script src="{% static 'sing-login-style/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'sing-login-style/js/main.js' %}"></script>
 </body>
 </html>
