@@ -26,6 +26,13 @@
             position: relative;
             bottom: 50%;
         }
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
 
 
     </style>
@@ -85,12 +92,22 @@
 <!-- Header section end -->
 
 <!-- Hero section -->
-<section class="hero-section">
-    <p>Choose what do you want to extract. Text from picture or car plate recognition</p>
-    <a href="login-page">Extract Text from Picture</a>
-    <a href="carplate">Car plate recognition</a>
+<div class="container" style="height: 80vh">
+    <div class="vertical-center">
+        <h3 style="color: #b3b3b3" align="center">Choose what do you want to extract. Text from picture or car plate recognition</h3>
+        <br>
+        <hr>
+        <div style="display: block; text-align: center" class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+            <a class="btn btn-secondary" href="login-page">Extract Text from Picture</a>
+            <a class="btn btn-secondary"  href="carplate">Car plate recognition</a>
+        </div>
+    </div>
+</div>
 
-</section>
+
+
+
+
 
 <!-- Hero section end -->
 
