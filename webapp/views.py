@@ -192,8 +192,11 @@ def carplate(request):
         file = open("D:/GitHub/image-recognition-site-web-6/static/text_from_picture.txt", "w")
         file.write(text)
         file.close()
-        new_record = ImageOCRecord(image_path=file_name, text_from_image=text)
-        new_record.save()
+        if text != '':
+            new_record = ImageOCRecord(image_path=file_name, text_from_image=text)
+            new_record.save()
+        else:
+            plate_found = "Algorithm couldn't detect text"
 
     context = {'img_name': file_name, 'img_text': text, 'founded': founded, 'plate': plate_found}
     print('final')
